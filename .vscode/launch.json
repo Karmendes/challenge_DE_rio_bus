@@ -1,0 +1,21 @@
+{
+  "python.linting.pylintEnabled": true,
+  "python.linting.enabled": true,
+  "files.exclude": {
+    "**/*.pyc": {
+      "when": ".py"
+    },
+    "**/__pycache__": true,
+    "**/*.pytest_cache": true
+  },
+  "configurations": [
+    {
+      "name": "Python Debugger: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "python": "${workspaceFolder}/challenge_bus/Scripts/python"
+    }
+  ]
+}
