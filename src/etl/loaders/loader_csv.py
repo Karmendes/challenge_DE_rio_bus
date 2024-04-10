@@ -6,4 +6,4 @@ class LoadCSV(Loaders):
         self.data = None
         self.path = None
     def load(self):
-        self.data.to_csv(self.path)
+        self.data.to_csv(self.path,index = False)

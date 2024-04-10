@@ -2,6 +2,7 @@ import json
 from datetime import datetime
 import pandas as pd
 from src.etl.main import ETL
+from src.library.utils.main import convert_timestamp
 
 class ETLApiToRaw(ETL):
     def __init__(self,extractor,loader):
@@ -16,6 +17,8 @@ class ETLApiToRaw(ETL):
         dict_data = json.loads(decoded_data)
         df = pd.DataFrame.from_records(dict_data['veiculos'])
         df['dh_extraction'] = self.now
+        df = df.rename(columns={'dataHora': 'datahora'})
+        df['datahora'] = df['datahora'].apply(convert_timestamp)
         self.data = df
     def load(self):
         self.loader.data = self.data
