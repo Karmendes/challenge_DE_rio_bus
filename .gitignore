@@ -1,2 +1,4 @@
 **/__pycache__
 challenge_bus
+dbt.log
+*.csv

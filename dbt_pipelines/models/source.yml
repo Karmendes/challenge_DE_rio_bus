@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: brt
+    database: db_brt_bus 
+    schema: sc_silver  
+    tables:
+      - name: tb_brt_api
