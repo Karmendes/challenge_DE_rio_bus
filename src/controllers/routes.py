@@ -1,21 +1,23 @@
-from flask import jsonify
+from json import dumps
+from flask import jsonify,Response
 from flask import Blueprint
 from src.etl.factory import etls
-from src.library.logger.main import Logger
+
 
 routes = Blueprint('routes', __name__)
 
 def run_etl(etl_name):
     try:
-        Logger.emit(f'Inicializando ETL {etl_name}')
         etls[etl_name].run()
-        Logger.emit(f'Terminando ETL {etl_name}')
-        return jsonify({"status": "success", "status_code": 200})
+        o = dumps({'status':'ok','message': 'ETL concluded' })
+        response = Response(o, 200, mimetype='application/json')
     except Exception as e:
-        Logger.emit(f'ETL {etl_name} nao completado: {str(e)}')
-        return jsonify({"status": "fail", "status_code": 500})
+        o = dumps({'status':'fail','message': 'ETL not concluded','error': e})
+        response = Response(o, 500, mimetype='application/json')
+    return response
 
 @routes.route("/liveness", methods=["GET"])
+
 def liveness():
     return jsonify('I am alive!')
 
