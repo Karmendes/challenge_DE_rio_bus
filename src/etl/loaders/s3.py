@@ -19,6 +19,6 @@ class LoadS3ByCSV(Loaders):
         self.path = None
     def load(self):
         csv_buffer = StringIO()
-        self.data.to_csv(csv_buffer)
+        self.data.to_csv(csv_buffer,index = False)
         csv_buffer.seek(0)
         self.__s3_client.put_object(Body=csv_buffer.getvalue(), Bucket=self.bucket_name, Key=self.path)

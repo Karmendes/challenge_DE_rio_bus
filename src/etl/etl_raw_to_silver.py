@@ -1,6 +1,5 @@
 import numpy as np
 from src.etl.main import ETL
-from src.library.utils.main import move_files_with_pattern
 from src.library.logger.main import Logger
 
 FOLDER_FROM = 'data/'
@@ -25,7 +24,7 @@ class ETLRawToSilver(ETL):
         self.loader.load()
     def clean(self):
         Logger.emit('Cleaning data')
-        move_files_with_pattern(FOLDER_FROM, FOLDER_TO, pattern=PATTERN)
+        self.extractor.clean()
     def run(self):
         Logger.emit('Starting process')
         self.extract()
