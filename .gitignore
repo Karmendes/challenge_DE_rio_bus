@@ -2,3 +2,6 @@
 challenge_bus
 dbt.log
 *.csv
+.env
+todo
+test.py
