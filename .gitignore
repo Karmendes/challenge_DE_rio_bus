@@ -5,3 +5,4 @@ dbt.log
 .env
 todo
 test.py
+logs/
