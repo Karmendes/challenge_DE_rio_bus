@@ -1,7 +1,7 @@
 from json import dumps
 from flask import jsonify,Response
 from flask import Blueprint
-from src.etl.factory import etls
+from etl.factory import etls
 
 
 routes = Blueprint('routes', __name__)

@@ -8,7 +8,7 @@ connections = {
     {
         'user':'postgres',
         'pwd':'postgres',
-        'host':'localhost',
+        'host':'db-datalake-service',
         'db':'db_brt_bus',
         'port':5432,
         'schema':'sc_shorter',
