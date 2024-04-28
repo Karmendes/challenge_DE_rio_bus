@@ -1,5 +1,5 @@
-from src.etl.main import Extractors
-from src.library.data_manipulator.main import DataManipulator
+from etl.main import Extractors
+from library.data_manipulator.main import DataManipulator
 
 class ExtractCSVFromListFiles(Extractors):
     def __init__(self,path):

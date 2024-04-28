@@ -1,4 +1,4 @@
-from src.etl.main import Loaders
+from etl.main import Loaders
 
 
 class LoadCSV(Loaders):

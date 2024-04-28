@@ -2,7 +2,7 @@ from io import StringIO
 import os
 import boto3
 from dotenv import load_dotenv
-from src.etl.main import Loaders
+from etl.main import Loaders
 
 
 # Load environment variables from .env file

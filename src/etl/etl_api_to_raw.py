@@ -1,16 +1,15 @@
 import json
 from datetime import datetime
 import pandas as pd
-from src.etl.main import ETL
-from src.library.utils.main import convert_timestamp
-from src.library.logger.main import Logger
+from etl.main import ETL
+from library.utils.main import convert_timestamp
+from library.logger.main import Logger
 
 PREFIX = 'data/brt_data_'
 KEY_FROM_API = 'veiculos'
 
 class ETLApiToRaw(ETL):
     def __init__(self,extractor,loader):
-        Logger.emit('Initializing ETL api to raw')
         self.extractor = extractor
         self.loader = loader
         self.data = None

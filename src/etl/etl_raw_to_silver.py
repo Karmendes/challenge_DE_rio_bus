@@ -1,6 +1,6 @@
 import numpy as np
-from src.etl.main import ETL
-from src.library.logger.main import Logger
+from etl.main import ETL
+from library.logger.main import Logger
 
 FOLDER_FROM = 'data/'
 FOLDER_TO = 'data/processed'
@@ -8,7 +8,6 @@ PATTERN = '*.csv'
 
 class ETLRawToSilver(ETL):
     def __init__(self,extractor,loader):
-        Logger.emit('Initializing ETL raw to silver')
         self.extractor = extractor
         self.loader = loader
         self.data = None

@@ -1,5 +1,5 @@
-from src.etl.main import Extractors
-from src.library.requester.main import Request
+from etl.main import Extractors
+from library.requester.main import Request
 
 URL = 'https://dados.mobilidade.rio/gps/brt'
 

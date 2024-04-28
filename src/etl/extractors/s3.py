@@ -3,7 +3,7 @@ from io import StringIO
 import boto3
 from dotenv import load_dotenv
 import pandas as pd
-from src.etl.main import Extractors
+from etl.main import Extractors
 
 # Load environment variables from .env file
 load_dotenv()

@@ -1,7 +1,7 @@
 from requests import Session
 from retry_requests import retry
 
-from src.library.logger.main import Logger
+from library.logger.main import Logger
 
 RETRY_CODES=(429,408,504,503,500)
 
