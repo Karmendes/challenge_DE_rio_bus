@@ -28,8 +28,9 @@ class ExtractFromListFiles(Extractors):
         self.bucket_name = bucket_name
         self.path = path
         self.ext = ext
-        self.list_files = list_files(self.__s3_client,self.bucket_name,self.path,self.ext)
+        self.list_files = None
     def extract(self):
+        self.list_files = list_files(self.__s3_client,self.bucket_name,self.path,self.ext)
         list_df = []
         for file in self.list_files:
             s3_object = self.__s3_client.get_object(Bucket=self.bucket_name, Key=file)
