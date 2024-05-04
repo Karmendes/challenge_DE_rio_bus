@@ -1,7 +1,7 @@
 from datetime import datetime,timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from hooks.hook_requests import call_api
+from hooks.hook_requests import make_http_request
 
 
 
@@ -28,21 +28,21 @@ dag = DAG(
 
 task_raw = PythonOperator(
     task_id='api_to_raw',
-    python_callable=call_api,
+    python_callable=make_http_request,
     op_args=['api_to_raw'],
     dag=dag
     )
 
 task_silver = PythonOperator(
     task_id='raw_to_silver',
-    python_callable=call_api,
+    python_callable=make_http_request,
     op_args=['raw_to_silver'],
     dag=dag
     )
 
 task_gold = PythonOperator(
     task_id='silver_to_gold',
-    python_callable=call_api,
+    python_callable=make_http_request,
     op_args=['silver_to_gold'],
     dag=dag
 )
